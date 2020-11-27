@@ -30,6 +30,10 @@ def Boost(name, bass, speedup):
     #dst = "test.mp3"
     track = AudioSegment.from_file(name)
 
+    if(track.duration_seconds > 300):
+        print("Многа, давай что бы было меньше 5 минут, не охота полдня твоё говно бустить")
+        return 0
+
     freq = bass_line_freq(track.get_array_of_samples())
 
     if (freq < 50):
